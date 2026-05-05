@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Jyoti Varpe | Engineer & Artist</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,400&family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#231321;
+  --bg:#120b18;
+  --bg2:#180e22;
+  --panel:#21142c;
+  --panel2:#2a1937;
+  --panel3:#321d42;
+  --pink:#ff8fb3;
+  --pink2:#ffd0dc;
+  --hot:#ff4f91;
+  --cream:#fff2d8;
+  --muted:#d8acc1;
+  --muted2:#a97692;
+  --line:#6e345b;
+  --line2:#9d4a78;
+  --blue:#62d4ff;
+  --gold:#ffd56b;
+  --green:#8fe09b;
+  --shadow:0 18px 60px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left,#3b1730 0,#120b18 44%,#09060d 100%);color:var(--cream);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+#cur,#cur-r{display:none}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:18px 18px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 70%);z-index:-1}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(18,11,24,.86);backdrop-filter:blur(18px);border-bottom:3px solid var(--line)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:0 22px;height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--pink2);text-shadow:3px 3px 0 #5b234d;text-decoration:none;letter-spacing:.04em}.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:22px;list-style:none}.nav-links a{color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.nav-links a:hover{color:var(--pink)}
+
+/* COMMON PIXEL SYSTEM */
+.pixel-box,.award,.exp-card,.sk-group,.proj-card,.ai-q-card,.blog-card,.c-card,.cl-item,.contact-form,.stat-box,.art-like-card{border:3px solid var(--line);background:linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:6px 6px 0 #000;border-radius:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border:3px solid var(--line);font-family:'Press Start 2P',monospace;font-size:9px;background:var(--pink);color:#2a1326;box-shadow:5px 5px 0 #000;transition:.15s;text-decoration:none;line-height:1.35;white-space:nowrap}.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 #000}.btn-solid{background:var(--pink);color:#2a1326}.btn-ghost{background:transparent;color:var(--pink2)}
+
+/* HERO */
+#hero{padding:34px 22px 0;background:linear-gradient(180deg,rgba(255,143,179,.07),transparent);border-bottom:0;display:flex;justify-content:center}
+#pixel-img{width:min(100%,1180px);max-height:620px;object-fit:contain;object-position:center;display:block;image-rendering:pixelated;image-rendering:crisp-edges;border:4px solid var(--hot);background:#ffb2c6;box-shadow:8px 8px 0 #000, var(--shadow);padding:8px}
+
+/* INTRO */
+#intro{padding:26px 22px 62px;background:transparent;border-bottom:3px solid var(--line)}
+.intro-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:132px minmax(0,1fr) 250px;gap:28px;align-items:center;padding:28px;border:4px solid var(--line);box-shadow:8px 8px 0 #000,var(--shadow);background:linear-gradient(180deg,var(--panel),var(--panel2));position:relative}.intro-inner::before{content:"";position:absolute;inset:12px;border:2px dashed rgba(255,143,179,.34);pointer-events:none}
+.photo-frame{width:112px;height:112px;border:4px solid var(--pink);background:#ffb2c6;box-shadow:5px 5px 0 #000;overflow:hidden;z-index:1}.photo-frame img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:auto}
+.intro-text{z-index:1}.greeting{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--gold);margin-bottom:12px;letter-spacing:.06em;text-transform:uppercase}h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(34px,4vw,58px);line-height:.98;color:var(--pink2);text-shadow:5px 5px 0 #62264f;letter-spacing:-1.3px;margin-bottom:14px}h1 em{font-style:italic;color:var(--pink)}
+.intro-sub{color:var(--muted);font-size:15px;max-width:640px;line-height:1.75}.intro-sub strong{color:var(--cream)}.intro-sub a{color:var(--pink2);border-bottom:1px solid rgba(255,143,179,.5)}.intro-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.intro-stats{z-index:1;display:grid;gap:12px}.stat-box{padding:14px 16px;text-align:center;min-width:100px;background:#180d21}.stat-num{display:block;font-family:'Press Start 2P',monospace;font-size:15px;color:var(--gold);margin-bottom:7px}.stat-lbl{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+
+/* SECTIONS */
+section{padding:64px 22px}.divider{height:3px;background:linear-gradient(to right,transparent,var(--line),transparent)}.s-kicker{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--gold);margin-bottom:12px;letter-spacing:.08em;text-transform:uppercase}h2{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(28px,3.3vw,48px);line-height:1.05;color:var(--pink2);text-shadow:3px 3px 0 #4e2045;letter-spacing:-1px;margin-bottom:10px}h2 em{font-style:italic;color:var(--pink)}.s-sub{max-width:680px;color:var(--muted);font-family:Inter,system-ui,sans-serif;font-style:normal;font-size:15px;margin-bottom:32px}
+
+/* ABOUT */
+#about,#skills,#blog,#contact{background:rgba(24,14,34,.72)}#experience,#projects,#connect{background:rgba(9,6,13,.32)}.about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:start}.about-body,.awards{padding:24px;border:3px solid var(--line);background:rgba(33,20,44,.9);box-shadow:6px 6px 0 #000}.about-body p{color:var(--muted);margin-bottom:14px;font-size:14.5px}.about-body strong,.award-name{color:var(--cream)}.about-body a{color:var(--pink2);border-bottom:1px solid rgba(255,143,179,.45)}.tech-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px}.tech-list li{font-family:Inconsolata,monospace;font-size:14px;color:var(--pink2);padding:8px 10px 8px 22px;border:2px solid rgba(110,52,91,.7);background:#170c20;position:relative}.tech-list li::before{content:'▸';position:absolute;left:8px;color:var(--gold)}
+.awards{display:grid;gap:12px}.award{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:#170c20;box-shadow:4px 4px 0 #000;transition:.2s}.award:hover{border-color:var(--pink);transform:translateX(3px)}.award-icon{width:34px;height:34px;border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;background:rgba(255,143,179,.12);flex-shrink:0}.award-org{font-size:12px;color:var(--muted2)}
+
+/* EXPERIENCE */
+.exp-timeline{display:grid;gap:16px;max-width:980px}.exp-item{display:grid;grid-template-columns:58px 1fr;gap:18px}.exp-dot{width:52px;height:52px;margin-top:16px;border:3px solid var(--line);display:flex;align-items:center;justify-content:center;background:#180d21;box-shadow:4px 4px 0 #000;font-family:'Press Start 2P',monospace;font-size:9px;color:var(--gold)}.exp-item.current .exp-dot{background:var(--pink);color:#2a1326;border-color:var(--pink2)}.exp-card{padding:23px 24px}.exp-card:hover{border-color:var(--pink);transform:translateX(3px)}.exp-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:4px}.exp-company{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--cream)}.exp-period{font-family:Inconsolata,monospace;font-size:12px;color:var(--gold);border:1px solid rgba(255,213,107,.25);padding:2px 9px;height:max-content}.now-badge{font-family:'Press Start 2P',monospace;font-size:7px;color:#2a1326;background:var(--pink);padding:4px 7px;margin-left:8px;vertical-align:middle}.exp-role{font-weight:800;color:var(--pink2);font-size:13px}.exp-loc{font-size:12px;color:var(--muted2);margin:2px 0 13px}.exp-buls{display:grid;gap:7px;margin-bottom:13px}.exp-bul{font-size:14px;color:var(--muted);padding-left:18px;position:relative}.exp-bul::before{content:'→';position:absolute;left:0;color:var(--pink)}.exp-imps,.exp-techs{display:flex;flex-wrap:wrap;gap:7px}.exp-imp{font-family:'Press Start 2P',monospace;font-size:7px;padding:5px 8px;background:rgba(143,224,155,.1);border:1px solid rgba(143,224,155,.35);color:var(--green)}.exp-tech,.proj-tech,.sk-tag{font-family:Inconsolata,monospace;font-size:12px;padding:4px 9px;background:#170c20;color:var(--muted);border:1px solid var(--line)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.sk-group{padding:22px}.sk-group:hover{border-color:var(--pink);transform:translateY(-2px)}.sk-title{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--cream);margin-bottom:15px;display:flex;gap:8px;align-items:center;line-height:1.45}.sk-dot{width:9px;height:9px;display:inline-block}.sk-tags{display:flex;flex-wrap:wrap;gap:8px}.sk-tag:hover{border-color:var(--pink);color:var(--pink2)}
+
+/* PROJECTS */
+.proj-grid{display:grid;gap:14px}.proj-card{display:grid;grid-template-columns:58px 1fr 140px;gap:20px;padding:23px 24px;position:relative}.proj-card:hover{border-color:var(--pink);transform:translateX(3px)}.proj-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:transparent}.proj-card:hover::before{background:var(--hot)}.proj-num{font-family:'Press Start 2P',monospace;color:var(--hot);font-size:16px}.proj-name{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:600;color:var(--cream);margin-bottom:6px}.proj-desc{color:var(--muted);font-size:14px;margin-bottom:12px}.proj-techs{display:flex;flex-wrap:wrap;gap:7px}.proj-stats{text-align:right}.proj-stat-num{font-family:'Press Start 2P',monospace;color:var(--gold);font-size:17px;margin-bottom:6px}.proj-stat-lbl{color:var(--muted2);font-size:11px;font-weight:800}.ai-quests{margin-top:34px}.ai-q-label{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}.ai-q-label::after{content:"";height:2px;background:var(--line);flex:1}.ai-q-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.ai-q-card{padding:20px;border-left:4px solid var(--hot)}.ai-q-name{font-weight:800;color:var(--cream);margin-bottom:6px}.ai-q-desc{color:var(--muted);font-size:13px}
+
+/* ART */
+#art{background:#fff2d8;color:#2a1326}.art-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.art-desc,.art-gallery,.comics-panels{padding:0}.art-desc p{color:#5a4030;margin-bottom:14px}.art-desc a{color:#b86030;border-bottom:1px solid rgba(184,96,48,.35)}#art .s-kicker{color:#7a4f2e}#art h2{color:#2a1326;text-shadow:3px 3px 0 #eac3a9}#art h2 em{color:#b86030}#art .s-sub{color:#5a4030}.art-links{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.btn-terra{display:inline-flex;align-items:center;padding:11px 15px;border:3px solid #7a4f2e;background:#b86030;color:#fff;font-family:'Press Start 2P',monospace;font-size:8px;box-shadow:5px 5px 0 #000}.btn-terra.outline{background:transparent;color:#7a4f2e}.art-likes-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}.art-like-card{background:#fffaf0;border-color:#e0c8a8;box-shadow:5px 5px 0 #c8a880;padding:18px}.art-like-title{font-family:'Press Start 2P',monospace;font-size:8px;color:#7a4f2e;margin-bottom:12px}.art-like-card ul{list-style:none}.art-like-card li{color:#5a4030;font-size:13px;padding-left:14px;position:relative}.art-like-card li::before{content:'○';position:absolute;left:0;color:#b86030}.art-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.art-cell{position:relative;overflow:hidden;border:3px solid #e0c8a8;box-shadow:5px 5px 0 #c8a880;aspect-ratio:1;background:#fff}.art-cell img{width:100%;height:100%;object-fit:cover;display:block}.art-cell-ov{position:absolute;inset:0;background:rgba(42,19,38,.72);display:flex;align-items:center;justify-content:center;text-align:center;padding:14px;opacity:0;transition:.2s}.art-cell:hover .art-cell-ov{opacity:1}.art-cell-ov span{font-family:Inconsolata,monospace;font-size:12px;color:#fff2d8;text-transform:uppercase}.art-see-more{display:block;margin-top:14px;padding:13px;text-align:center;border:3px solid #e0c8a8;background:#fffaf0;box-shadow:5px 5px 0 #c8a880;color:#7a4f2e;font-family:'Press Start 2P',monospace;font-size:8px}
+
+/* COMICS */
+#comics{background:#06040e}.comics-top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:28px}.comics-handle{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--gold);margin-bottom:10px}.comics-desc{color:rgba(255,242,216,.62);max-width:520px}.btn-ig,.btn-comics-more{display:inline-flex;align-items:center;padding:11px 15px;border:3px solid rgba(255,143,179,.5);font-family:'Press Start 2P',monospace;font-size:8px;color:#fff;box-shadow:5px 5px 0 #000}.btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}.btn-comics-more{background:transparent;color:var(--pink2)}.comics-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.comic-panel{position:relative;overflow:hidden;border:3px solid var(--line);box-shadow:6px 6px 0 #000;aspect-ratio:1;background:#160d20}.comic-panel img{width:100%;height:100%;object-fit:cover;display:block}.comic-panel-ov{position:absolute;inset:0;background:rgba(255,79,145,.12);border:2px solid rgba(255,143,179,.5);display:flex;align-items:flex-end;padding:12px;opacity:0;transition:.2s}.comic-panel:hover .comic-panel-ov{opacity:1}.comic-panel-ov span{font-family:'Press Start 2P',monospace;font-size:8px;color:var(--pink2)}.comics-footer{display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:2px solid rgba(255,255,255,.08)}.comics-quote{font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,242,216,.55);font-size:19px;max-width:480px}
+
+/* BLOG / CONNECT / CONTACT */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.blog-card{padding:22px;display:block;transition:.2s}.blog-card:hover,.c-card:hover{border-color:var(--pink);transform:translateY(-3px)}.blog-card::after{content:'↗';float:right;color:var(--pink)}.blog-cat{display:inline-block;font-family:'Press Start 2P',monospace;font-size:7px;padding:5px 8px;margin-bottom:13px;border:1px solid}.bc-ai{color:var(--hot);background:rgba(255,79,145,.1);border-color:rgba(255,79,145,.25)}.bc-eng{color:var(--blue);background:rgba(98,212,255,.1);border-color:rgba(98,212,255,.25)}.bc-art{color:var(--gold);background:rgba(255,213,107,.1);border-color:rgba(255,213,107,.25)}.blog-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--cream);margin-bottom:8px}.blog-excerpt{font-size:13px;color:var(--muted);margin-bottom:12px}.blog-meta{display:flex;justify-content:space-between;color:var(--muted2);font-size:11px}.blog-src{font-family:Inconsolata,monospace}.blog-cta{margin-top:26px;padding:22px;border:3px solid var(--line);background:var(--panel);box-shadow:6px 6px 0 #000;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.blog-cta p{color:var(--muted)}.blog-cta strong{color:var(--cream)}
+.connect-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}.c-card{text-align:center;padding:22px 16px}.c-icon{font-size:24px;margin-bottom:10px}.c-label{font-family:'Press Start 2P',monospace;font-size:9px;color:var(--cream);margin-bottom:6px}.c-sub{font-size:12px;color:var(--muted2)}.c-action{font-size:11px;color:var(--pink);font-weight:800;margin-top:8px}.contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:38px}.contact-info-text{color:var(--muted);font-size:15px;margin-bottom:22px}.contact-links{display:grid;gap:12px}.cl-item{display:flex;gap:12px;align-items:center;padding:14px 16px}.cl-item:hover{border-color:var(--pink);transform:translateX(3px)}.cl-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,143,179,.1);border:1px solid var(--line2)}.cl-label{font-weight:800;color:var(--cream);font-size:13px}.cl-sub{font-size:12px;color:var(--muted2)}.contact-form{padding:28px}.form-title{font-family:'Press Start 2P',monospace;font-size:12px;color:var(--pink2);line-height:1.5;margin-bottom:6px}.form-subtitle{color:var(--muted2);font-size:13px;margin-bottom:22px}.form-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-row{margin-bottom:15px}.form-row label{display:block;font-family:'Press Start 2P',monospace;font-size:7px;color:var(--gold);margin-bottom:8px;text-transform:uppercase}.form-row input,.form-row textarea{width:100%;padding:12px 13px;background:#170c20;border:2px solid var(--line);box-shadow:3px 3px 0 #000;color:var(--cream);font-family:Inter,system-ui,sans-serif;outline:none}.form-row input:focus,.form-row textarea:focus{border-color:var(--pink)}.form-row textarea{height:120px;resize:vertical}.btn-submit{width:100%;padding:14px;border:3px solid var(--line);font-family:'Press Start 2P',monospace;font-size:9px;background:var(--pink);color:#2a1326;box-shadow:5px 5px 0 #000}.form-success{display:none;text-align:center;color:var(--green);padding:22px}.form-success .check{font-size:34px;display:block}
+footer{padding:28px 22px;border-top:3px solid var(--line);background:#09060d}.footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted2);font-size:12px}.footer-left{font-family:'Press Start 2P',monospace;font-size:9px}.footer-left span{color:var(--pink)}.footer-right{font-family:Inconsolata,monospace}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--line)}
+
+@media(max-width:960px){.nav-links{display:none}.intro-inner{grid-template-columns:1fr;text-align:center}.photo-frame{margin:0 auto}.intro-ctas{justify-content:center}.intro-stats{grid-template-columns:repeat(3,1fr)}.about-grid,.art-grid,.contact-layout{grid-template-columns:1fr}.proj-card{grid-template-columns:48px 1fr}.proj-stats{display:none}.comics-panels{grid-template-columns:1fr 1fr}.exp-item{grid-template-columns:44px 1fr}.exp-dot{width:42px;height:42px;font-size:7px}.form-grid2{grid-template-columns:1fr}}
+@media(max-width:640px){.nav-inner{height:64px}.logo{font-size:10px}#hero{padding:18px 12px 0}#pixel-img{padding:4px;border-width:3px}.intro-inner{padding:22px 18px}.intro-stats,.tech-list,.art-likes-row,.art-gallery,.comics-panels{grid-template-columns:1fr}.btn{width:100%}section{padding:48px 16px}h1{font-size:34px}.footer-inner{flex-direction:column;text-align:center}}
+
+
+/* =========================================================
+   POLISHED OVERRIDES: cohesive art + interactive comics
+   ========================================================= */
+
+/* Shared premium motion */
+.pixel-card,
+.card,
+.project,
+.blog-card,
+.role,
+.art-cell,
+.art-like-card,
+.comic-panel,
+.btn,
+.btn-terra,
+.btn-ig,
+.btn-comics-more {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Soft pink/cream art gallery */
+#art {
+  background: linear-gradient(180deg, #fff1f6 0%, #ffe4ec 100%) !important;
+  color: #2a1320 !important;
+}
+
+#art .s-kicker,
+#art .kicker {
+  color: #a84d6d !important;
+}
+
+#art h2 {
+  color: #2a1320 !important;
+  text-shadow: 3px 3px 0 #f4bfd0 !important;
+}
+
+#art h2 em {
+  color: #d65a8c !important;
+}
+
+#art .s-sub,
+#art .sub,
+#art .art-desc p,
+#art .art-like-card li {
+  color: #5a3a40 !important;
+}
+
+#art .art-desc a {
+  color: #a84d6d !important;
+  border-bottom-color: rgba(168, 77, 109, 0.35) !important;
+}
+
+#art .art-like-card,
+#art .art-cell,
+#art .art-see-more {
+  background: #ffffff !important;
+  border-color: #f2b6c6 !important;
+  box-shadow: 5px 5px 0 #e5a3b5 !important;
+}
+
+#art .art-like-title {
+  color: #a84d6d !important;
+}
+
+#art .art-cell-ov {
+  background: rgba(214, 90, 140, 0.72) !important;
+}
+
+#art .art-cell:hover,
+#art .art-like-card:hover,
+#art .art-see-more:hover {
+  transform: translateY(-3px);
+  border-color: #d65a8c !important;
+  box-shadow:
+    5px 5px 0 #e5a3b5,
+    0 0 18px rgba(214, 90, 140, 0.28) !important;
+}
+
+/* Dark cinematic comics section */
+#comics {
+  background: linear-gradient(180deg, #120b18 0%, #1a1022 100%) !important;
+}
+
+#comics .s-kicker,
+#comics .kicker,
+#comics .comics-handle {
+  color: #ff6fa3 !important;
+}
+
+#comics h2 {
+  color: #ffe6ef !important;
+  text-shadow: 3px 3px 0 #4e2045 !important;
+}
+
+#comics h2 em {
+  color: #ff6fa3 !important;
+}
+
+#comics .comics-desc,
+#comics .comics-quote {
+  color: rgba(255, 230, 239, 0.58) !important;
+}
+
+/* Interactive comic panels */
+.comic-panel {
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  border-color: rgba(255, 111, 163, 0.32) !important;
+  background: #160d20 !important;
+  box-shadow: 6px 6px 0 #000 !important;
+}
+
+.comic-panel img {
+  transition:
+    transform 0.45s ease,
+    filter 0.35s ease !important;
+  transform-origin: center center;
+}
+
+.comic-panel:hover {
+  transform: translateY(-4px) scale(1.015);
+  border-color: rgba(255, 111, 163, 0.65) !important;
+  box-shadow:
+    6px 6px 0 #000,
+    0 0 24px rgba(255, 111, 163, 0.30) !important;
+}
+
+.comic-panel:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.72) saturate(1.15);
+}
+
+.comic-panel-ov {
+  background: rgba(255, 111, 163, 0.16) !important;
+  border: 2px solid rgba(255, 111, 163, 0.42) !important;
+  opacity: 0 !important;
+  transform: translateY(12px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease !important;
+}
+
+.comic-panel:hover .comic-panel-ov {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+.comic-panel-ov span {
+  color: #ffb3cc !important;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Pixel READ tag */
+.comic-panel::after {
+  content: "READ";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  font-family: "Press Start 2P", monospace;
+  font-size: 7px;
+  line-height: 1;
+  color: #ffe6ef;
+  background: rgba(255, 111, 163, 0.78);
+  border: 2px solid rgba(255, 230, 239, 0.55);
+  padding: 7px 8px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.comic-panel:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Buttons inside creative sections */
+.btn-ig {
+  border-color: rgba(255, 111, 163, 0.45) !important;
+  background: linear-gradient(135deg, #ff6fa3, #833ab4) !important;
+}
+
+.btn-comics-more {
+  border-color: rgba(255, 111, 163, 0.45) !important;
+  color: #ff6fa3 !important;
+}
+
+.btn-ig:hover,
+.btn-comics-more:hover,
+.btn-terra:hover,
+.btn:hover {
+  box-shadow:
+    7px 7px 0 #000,
+    0 0 16px rgba(255, 111, 163, 0.30) !important;
+}
+
+/* Keep glow subtle on main cards */
+.card:hover,
+.project:hover,
+.blog-card:hover,
+.role:hover {
+  box-shadow:
+    6px 6px 0 #000,
+    0 0 14px rgba(255, 111, 163, 0.16) !important;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .comic-panel,
+  .comic-panel img,
+  .comic-panel-ov,
+  .comic-panel::after,
+  .art-cell,
+  .btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="cur"></div><div id="cur-r"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo">JYOTI<span>.</span>VARPE</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Journey</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#art">Art</a></li>
+      <li><a href="#comics">Comics</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PIXEL HERO -->
+<section id="hero">
+  <img id="pixel-img" src="pixel-hero.png" alt="Jyoti Varpe">
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="intro-inner">
+    <div class="photo-frame">
+      <img src="photo.jpg" alt="Jyoti Varpe">
+    </div>
+    <div class="intro-text">
+      <div class="greeting">// hi, jyoti here.</div>
+      <h1><strong>Engineer</strong> &amp; <em>Artist</em></h1>
+      <p class="intro-sub">Senior software engineer at <strong>IronClad</strong> building AI-powered systems. Watercolour painter at <a href="https://instagram.com/artsbyjyotii" target="_blank">@artsbyjyotii</a>. Comic creator at <a href="https://instagram.com/prettymuchcomics" target="_blank">@prettymuchcomics</a>. Based in Milpitas, CA.</p>
+      <div class="intro-ctas">
+        <a href="#experience" class="btn btn-solid">View Journey</a>
+        <a href="#contact" class="btn btn-ghost">Say Hello</a>
+        <a href="#projects" class="btn btn-ghost">Projects</a>
+      </div>
+    </div>
+    <div class="intro-stats">
+      <div class="stat-box"><span class="stat-num">11+</span><span class="stat-lbl">Years Exp</span></div>
+      <div class="stat-box"><span class="stat-num">50×</span><span class="stat-lbl">Throughput</span></div>
+      <div class="stat-box"><span class="stat-num">80%</span><span class="stat-lbl">Cost Cut</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="s-kicker">01 · about</div>
+    <h2>More than <em>just code.</em></h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I am currently a Senior Software Engineer at <strong><a href="https://ironcladapp.com" target="_blank">IronClad</a></strong>, building AI-powered contract intelligence systems. Previously at <strong><a href="https://lendingclub.com" target="_blank">LendingClub</a></strong> and <strong><a href="https://fleetup.com" target="_blank">FleetUp</a></strong>.</p>
+        <p>Here are some technologies I've been working with:</p>
+        <ul class="tech-list">
+          <li>Java · Spring Boot</li><li>Python · LangChain</li>
+          <li>OpenAI · Claude APIs</li><li>AWS · GCP · K8s</li>
+          <li>RAG · AI Agents</li><li>TypeScript · React</li>
+        </ul>
+        <p style="margin-top:16px">In my free time I paint watercolours at <strong><a href="https://instagram.com/artsbyjyotii" target="_blank">@artsbyjyotii</a></strong>, make comics at <strong><a href="https://instagram.com/prettymuchcomics" target="_blank">@prettymuchcomics</a></strong>, and write about tech and creativity.</p>
+      </div>
+      <div>
+        <div class="s-kicker" style="margin-bottom:16px">Recognition</div>
+        <div class="awards">
+          <div class="award"><div class="award-icon">⭐</div><div><div class="award-name">Star Performer Award</div><div class="award-org">LendingClub · 2023</div></div></div>
+          <div class="award"><div class="award-icon">🏆</div><div><div class="award-name">1st Prize — Final Year Project</div><div class="award-org">Persistent Systems · 2013</div></div></div>
+          <div class="award"><div class="award-icon">🎓</div><div><div class="award-name">Graduate Achievement Award</div><div class="award-org">Univ. of Central Missouri · 2019</div></div></div>
+          <div class="award"><div class="award-icon">☁️</div><div><div class="award-name">Cloud Hackathon Lead</div><div class="award-org">LendingClub · 10 engineers · shipped</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="s-kicker">02 · journey</div>
+    <h2>Every chapter, <em>a different world.</em></h2>
+    <p class="s-sub">11 years across startups, fintech, and legal-tech.</p>
+    <div class="exp-timeline">
+
+      <div class="exp-item current">
+        <div class="exp-dot">01</div>
+        <div class="exp-card">
+          <div class="exp-top"><div><span class="exp-company">IronClad</span><span class="now-badge">now</span></div><div class="exp-period">Oct 2024 — Present</div></div>
+          <div class="exp-role">Senior Software Developer</div>
+          <div class="exp-loc">📍 San Francisco, USA</div>
+          <div class="exp-buls">
+            <div class="exp-bul">GPT-4 contract intelligence platform — automated clause analysis & drafting at scale</div>
+            <div class="exp-bul">Agentic AI workflows with LangChain + RAG across thousands of enterprise contracts</div>
+            <div class="exp-bul">REST APIs on Google Cloud reducing data retrieval latency by 25%</div>
+          </div>
+          <div class="exp-imps"><span class="exp-imp">25% latency ↓</span><span class="exp-imp">35% faster</span><span class="exp-imp">AI at scale</span></div>
+          <div class="exp-techs"><span class="exp-tech">Java</span><span class="exp-tech">LangChain</span><span class="exp-tech">RAG</span><span class="exp-tech">OpenAI</span><span class="exp-tech">GCP</span><span class="exp-tech">GraphQL</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot">02</div>
+        <div class="exp-card">
+          <div class="exp-top"><div class="exp-company">LendingClub</div><div class="exp-period">Jul 2022 — Oct 2024</div></div>
+          <div class="exp-role">Software Developer · San Francisco</div>
+          <div class="exp-loc">📍 San Francisco, USA</div>
+          <div class="exp-buls">
+            <div class="exp-bul">Real-time ML loan approval system — Python + Java/Spring Boot at scale</div>
+            <div class="exp-bul">Refactored legacy AWS batch pipeline → event-driven Lambda microservices</div>
+            <div class="exp-bul">Led cloud hackathon with 10 engineers — solutions went to production</div>
+          </div>
+          <div class="exp-imps"><span class="exp-imp">⭐ Star Performer 2023</span><span class="exp-imp">20% faster</span></div>
+          <div class="exp-techs"><span class="exp-tech">Java</span><span class="exp-tech">Spring Boot</span><span class="exp-tech">Python</span><span class="exp-tech">AWS</span><span class="exp-tech">Kafka</span><span class="exp-tech">K8s</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot">03</div>
+        <div class="exp-card">
+          <div class="exp-top"><div class="exp-company">FleetUp</div><div class="exp-period">Aug 2019 — Jul 2022</div></div>
+          <div class="exp-role">Software Developer · Early Employee #10</div>
+          <div class="exp-loc">📍 San Jose, USA</div>
+          <div class="exp-buls">
+            <div class="exp-bul">50× throughput handling millions of real-time fleet events daily</div>
+            <div class="exp-bul">Cut geocoding costs 80% ($10K → $2K) via custom AWS Lambda</div>
+            <div class="exp-bul">Owned backend during rapid scaling — ARR $6M → double digits</div>
+          </div>
+          <div class="exp-imps"><span class="exp-imp">50× throughput</span><span class="exp-imp">80% cost cut</span></div>
+          <div class="exp-techs"><span class="exp-tech">Java</span><span class="exp-tech">AWS Lambda</span><span class="exp-tech">Kinesis</span><span class="exp-tech">DynamoDB</span><span class="exp-tech">Redis</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot">04</div>
+        <div class="exp-card">
+          <div class="exp-top"><div class="exp-company">Persistent Systems</div><div class="exp-period">Oct 2013 — May 2018</div></div>
+          <div class="exp-role">Module Lead → Software Developer</div>
+          <div class="exp-loc">📍 Pune, India</div>
+          <div class="exp-buls">
+            <div class="exp-bul">Led Cisco Jasper SIM provisioning — 10% higher activation rate</div>
+            <div class="exp-bul">Centralised SAP monitoring tool — 200% performance boost</div>
+            <div class="exp-bul">Won 1st prize in company-wide project competition</div>
+          </div>
+          <div class="exp-imps"><span class="exp-imp">200% perf boost</span><span class="exp-imp">🏆 1st Prize</span></div>
+          <div class="exp-techs"><span class="exp-tech">Java</span><span class="exp-tech">Spring</span><span class="exp-tech">Python</span><span class="exp-tech">MySQL</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="s-kicker">03 · skills</div>
+    <h2><em>11 years</em> of deliberate choices.</h2>
+    <div class="skills-grid">
+      <div class="sk-group"><div class="sk-title"><span class="sk-dot" style="background:#ff6eb4"></span>Languages</div><div class="sk-tags"><span class="sk-tag">Java</span><span class="sk-tag">Python</span><span class="sk-tag">TypeScript</span><span class="sk-tag">JavaScript</span><span class="sk-tag">Golang</span><span class="sk-tag">C++</span></div></div>
+      <div class="sk-group"><div class="sk-title"><span class="sk-dot" style="background:#22c98a"></span>Frameworks</div><div class="sk-tags"><span class="sk-tag">Spring Boot</span><span class="sk-tag">FastAPI</span><span class="sk-tag">React</span><span class="sk-tag">Node.js</span><span class="sk-tag">GraphQL</span><span class="sk-tag">Flask</span></div></div>
+      <div class="sk-group"><div class="sk-title"><span class="sk-dot" style="background:#ff5c7a"></span>AI / LLM</div><div class="sk-tags"><span class="sk-tag">OpenAI</span><span class="sk-tag">Claude</span><span class="sk-tag">LangChain</span><span class="sk-tag">LlamaIndex</span><span class="sk-tag">RAG</span><span class="sk-tag">FAISS</span><span class="sk-tag">AI Agents</span><span class="sk-tag">n8n</span></div></div>
+      <div class="sk-group"><div class="sk-title"><span class="sk-dot" style="background:#f0b429"></span>Cloud & Infra</div><div class="sk-tags"><span class="sk-tag">AWS</span><span class="sk-tag">GCP</span><span class="sk-tag">Docker</span><span class="sk-tag">Kubernetes</span><span class="sk-tag">Kafka</span><span class="sk-tag">Terraform</span><span class="sk-tag">Datadog</span></div></div>
+      <div class="sk-group"><div class="sk-title"><span class="sk-dot" style="background:#ff99cc"></span>Databases</div><div class="sk-tags"><span class="sk-tag">PostgreSQL</span><span class="sk-tag">MySQL</span><span class="sk-tag">MongoDB</span><span class="sk-tag">DynamoDB</span><span class="sk-tag">Redis</span><span class="sk-tag">Aurora</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="s-kicker">04 · projects</div>
+    <h2>Legendary <em>encounters.</em></h2>
+    <p class="s-sub">Production systems with measurable real-world impact.</p>
+    <div class="proj-grid">
+      <div class="proj-card"><div class="proj-num">I</div><div><div class="proj-name">GPT-4 Contract Intelligence Platform</div><div class="proj-desc">Production AI platform at IronClad — automated clause analysis, drafting, structured extraction. LangChain + RAG across thousands of enterprise contracts.</div><div class="proj-techs"><span class="proj-tech">Java</span><span class="proj-tech">LangChain</span><span class="proj-tech">OpenAI</span><span class="proj-tech">RAG</span><span class="proj-tech">GCP</span></div></div><div class="proj-stats"><div><div class="proj-stat-num">35%</div><div class="proj-stat-lbl">faster processing</div></div></div></div>
+      <div class="proj-card"><div class="proj-num">II</div><div><div class="proj-name">Real-Time ML Loan Approval</div><div class="proj-desc">ML-powered credit decisioning at LendingClub using Python + Java/Spring Boot. Star Performer 2023.</div><div class="proj-techs"><span class="proj-tech">Java</span><span class="proj-tech">Spring Boot</span><span class="proj-tech">Python</span><span class="proj-tech">scikit-learn</span></div></div><div class="proj-stats"><div><div class="proj-stat-num">⭐</div><div class="proj-stat-lbl">Star Performer</div></div></div></div>
+      <div class="proj-card"><div class="proj-num">III</div><div><div class="proj-name">FleetUp Real-Time Event Pipeline</div><div class="proj-desc">Distributed microservices handling millions of fleet events daily. Core to ARR growth $6M → double digits as early employee #10.</div><div class="proj-techs"><span class="proj-tech">Java</span><span class="proj-tech">AWS Kinesis</span><span class="proj-tech">DynamoDB</span><span class="proj-tech">Redis</span></div></div><div class="proj-stats"><div><div class="proj-stat-num">50×</div><div class="proj-stat-lbl">throughput</div></div></div></div>
+      <div class="proj-card"><div class="proj-num">IV</div><div><div class="proj-name">Cisco Jasper SIM Provisioning</div><div class="proj-desc">SIM profile, account creation and provisioning modules. Centralised SAP monitoring tool — 200% performance boost.</div><div class="proj-techs"><span class="proj-tech">Java</span><span class="proj-tech">Spring</span><span class="proj-tech">REST APIs</span><span class="proj-tech">MySQL</span></div></div><div class="proj-stats"><div><div class="proj-stat-num">200%</div><div class="proj-stat-lbl">perf boost</div></div></div></div>
+    </div>
+    <div class="ai-quests">
+      <div class="ai-q-label">🤖 AI Side Quests</div>
+      <div class="ai-q-grid">
+        <div class="ai-q-card"><div class="ai-q-name">LLM Evaluation & Guardrails</div><div class="ai-q-desc">End-to-end evaluation pipeline — automated prompt testing, response scoring, guardrails to reduce hallucinations.</div></div>
+        <div class="ai-q-card"><div class="ai-q-name">Real-Time AI Trivia Platform</div><div class="ai-q-desc">Multiplayer platform using FastAPI, WebSockets, Redis, and Claude API for context-aware questions.</div></div>
+        <div class="ai-q-card"><div class="ai-q-name">AI Job Application Agent</div><div class="ai-q-desc">End-to-end agent for job discovery, semantic matching, and resume tailoring via LangChain and FAISS.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ART -->
+<section id="art">
+  <div class="wrap">
+    <div class="s-kicker">05 · art</div>
+    <h2>The other <em>canvas.</em></h2>
+    <p class="s-sub">Watercolour paintings — made slowly, with too much water and not enough plan.</p>
+    <div class="art-grid">
+      <div>
+        <div class="art-desc">
+          <p>Art has always run parallel to engineering. The same obsession with structure and intentionality that goes into distributed systems shows up in every piece — no latency requirements, just an idea finding its shape.</p>
+          <p>I paint botanicals, loose portraits, and whatever mood the water decides to make. Every piece signed <em>-Jyo</em>.</p>
+          <div class="art-links">
+            <a href="https://instagram.com/artsbyjyotii" target="_blank" class="btn-terra">🎨 @artsbyjyotii</a>
+            <a href="https://medium.com/@jyotivarpe1595" target="_blank" class="btn-terra outline">Medium ↗</a>
+          </div>
+        </div>
+        <div class="art-likes-row">
+          <div class="art-like-card">
+            <div class="art-like-title">Likes ♡</div>
+            <ul>
+              <li>Wet-on-wet blooms</li>
+              <li>Early morning light</li>
+              <li>Botanical gardens</li>
+              <li>Rainy painting days</li>
+            </ul>
+          </div>
+          <div class="art-like-card">
+            <div class="art-like-title">Dislikes</div>
+            <ul>
+              <li>Bad paper</li>
+              <li>Out of Prussian blue</li>
+              <li>Overworked washes</li>
+              <li>Making decisions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="art-gallery">
+          <div class="art-cell">
+            <img src="wc-01.jpeg" alt="Spider lilies">
+            <div class="art-cell-ov"><span>Spider lilies · watercolour</span></div>
+          </div>
+          <div class="art-cell">
+            <img src="wc-02.jpeg" alt="Portrait">
+            <div class="art-cell-ov"><span>Portrait · watercolour</span></div>
+          </div>
+          <div class="art-cell">
+            <img src="wc-03.jpeg" alt="Garden with bee">
+            <div class="art-cell-ov"><span>Garden with bee · watercolour</span></div>
+          </div>
+        </div>
+        <a href="https://instagram.com/artsbyjyotii" target="_blank" class="art-see-more">see full gallery → @artsbyjyotii</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMICS -->
+<section id="comics">
+  <div class="wrap">
+    <div class="s-kicker">06 · comics</div>
+    <h2>Pretty Much <em>Everything.</em></h2>
+    <div class="comics-top">
+      <div class="comics-top-left">
+        <div class="comics-handle">📚 @prettymuchcomics</div>
+        <p class="comics-desc">Slice-of-life comics about the chaos of being human — made by an engineer who can't stop seeing patterns in everything.</p>
+      </div>
+      <a href="https://instagram.com/prettymuchcomics" target="_blank" class="btn-ig">📸 Follow on Instagram</a>
+    </div>
+    <div class="comics-panels">
+      <div class="comic-panel">
+        <img src="comic-01.jpeg" alt="Piano comic">
+        <div class="comic-panel-ov"><span>best or worst</span></div>
+      </div>
+      <div class="comic-panel">
+        <img src="comic-02.jpeg" alt="Cheese comic">
+        <div class="comic-panel-ov"><span>whole block of cheese</span></div>
+      </div>
+      <div class="comic-panel">
+        <img src="comic-03.jpeg" alt="Cleaning day">
+        <div class="comic-panel-ov"><span>cleaning day</span></div>
+      </div>
+    </div>
+    <div class="comics-footer">
+      <p class="comics-quote">"Every bug is a story. Every comic is just debugging life — one panel at a time."</p>
+      <a href="https://instagram.com/prettymuchcomics" target="_blank" class="btn-comics-more">see all comics ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="wrap">
+    <div class="s-kicker">07 · blog</div>
+    <h2>Notes from <em>the build log.</em></h2>
+    <p class="s-sub">Writing on engineering, AI, creativity, and the craft of building things.</p>
+    <div class="blog-grid">
+      <a href="https://jyotivarpe.com" target="_blank" class="blog-card"><span class="blog-cat bc-ai">AI / LLM</span><div class="blog-title">Building Production-Grade RAG Pipelines</div><div class="blog-excerpt">What they don't tell you about RAG in production — chunking strategies, embedding models, when retrieval fails.</div><div class="blog-meta"><span class="blog-src">jyotivarpe.com</span><span>5 min</span></div></a>
+      <a href="https://jyotivarpe.com" target="_blank" class="blog-card"><span class="blog-cat bc-eng">Engineering</span><div class="blog-title">50× Throughput: Scaling FleetUp's Event Pipeline</div><div class="blog-excerpt">Architectural decisions that took a struggling event system to millions of fleet events per day.</div><div class="blog-meta"><span class="blog-src">jyotivarpe.com</span><span>8 min</span></div></a>
+      <a href="https://jyotivarpe.com" target="_blank" class="blog-card"><span class="blog-cat bc-art">Art & Life</span><div class="blog-title">What Making Comics Taught Me About Better Code</div><div class="blog-excerpt">Visual storytelling and systems design share more DNA than you'd think.</div><div class="blog-meta"><span class="blog-src">jyotivarpe.com</span><span>4 min</span></div></a>
+      <a href="https://medium.com/@jyotivarpe1595" target="_blank" class="blog-card"><span class="blog-cat bc-ai">Medium</span><div class="blog-title">The Creative Engineer — Where Art Meets Architecture</div><div class="blog-excerpt">How being an artist makes me a better engineer and vice versa.</div><div class="blog-meta"><span class="blog-src">medium.com</span><span>6 min</span></div></a>
+    </div>
+    <div class="blog-cta">
+      <div><p><strong>More on Medium</strong></p><p>In-depth articles on engineering, AI, and creativity.</p></div>
+      <a href="https://medium.com/@jyotivarpe1595" target="_blank" class="btn btn-ghost">Follow on Medium ↗</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="wrap">
+    <div class="s-kicker">08 · find me</div>
+    <h2>Find me <em>everywhere.</em></h2>
+    <div class="connect-grid">
+      <a href="mailto:jyotivarpe1595@gmail.com" class="c-card"><div class="c-icon">✉️</div><div class="c-label">Email</div><div class="c-sub">jyotivarpe1595@gmail.com</div><div class="c-action">Send →</div></a>
+      <a href="https://linkedin.com/in/jyotivarpe" target="_blank" class="c-card"><div class="c-icon">💼</div><div class="c-label">LinkedIn</div><div class="c-sub">jyotivarpe</div><div class="c-action">Connect →</div></a>
+      <a href="https://github.com/thejyotivarpe" target="_blank" class="c-card"><div class="c-icon">⚙️</div><div class="c-label">GitHub</div><div class="c-sub">thejyotivarpe</div><div class="c-action">Code →</div></a>
+      <a href="https://instagram.com/artsbyjyotii" target="_blank" class="c-card"><div class="c-icon">🎨</div><div class="c-label">Art</div><div class="c-sub">@artsbyjyotii</div><div class="c-action">Follow →</div></a>
+      <a href="https://instagram.com/prettymuchcomics" target="_blank" class="c-card"><div class="c-icon">📚</div><div class="c-label">Comics</div><div class="c-sub">@prettymuchcomics</div><div class="c-action">Follow →</div></a>
+      <a href="https://medium.com/@jyotivarpe1595" target="_blank" class="c-card"><div class="c-icon">📝</div><div class="c-label">Medium</div><div class="c-sub">@jyotivarpe1595</div><div class="c-action">Read →</div></a>
+      <a href="https://jyotivarpe.com" target="_blank" class="c-card"><div class="c-icon">🌐</div><div class="c-label">Blog</div><div class="c-sub">jyotivarpe.com</div><div class="c-action">Explore →</div></a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="s-kicker">09 · contact</div>
+    <h2>Let's build <em>something great.</em></h2>
+    <div class="contact-layout">
+      <div>
+        <p class="contact-info-text">Open to senior engineering roles, AI/LLM opportunities, collaborations, and interesting conversations. Whether it's a technical challenge, creative project, or just a chat — I'd love to hear from you.</p>
+        <div class="contact-links">
+          <a href="mailto:jyotivarpe1595@gmail.com" class="cl-item"><div class="cl-icon">✉️</div><div><div class="cl-label">Email</div><div class="cl-sub">jyotivarpe1595@gmail.com</div></div></a>
+          <a href="https://linkedin.com/in/jyotivarpe" target="_blank" class="cl-item"><div class="cl-icon">💼</div><div><div class="cl-label">LinkedIn</div><div class="cl-sub">linkedin.com/in/jyotivarpe</div></div></a>
+          <a href="https://github.com/thejyotivarpe" target="_blank" class="cl-item"><div class="cl-icon">⚙️</div><div><div class="cl-label">GitHub</div><div class="cl-sub">github.com/thejyotivarpe</div></div></a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Send a Message</div>
+        <div class="form-subtitle">I'll get back to you within 24 hours.</div>
+        <div id="form-wrap">
+          <div class="form-grid2">
+            <div class="form-row"><label>Name</label><input type="text" id="f-name" placeholder="Your name"></div>
+            <div class="form-row"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com"></div>
+          </div>
+          <div class="form-row"><label>Subject</label><input type="text" id="f-subject" placeholder="What's this about?"></div>
+          <div class="form-row"><label>Message</label><textarea id="f-msg" placeholder="Tell me about your project or just say hello..."></textarea></div>
+          <button class="btn-submit" onclick="submitForm()">Send Message →</button>
+        </div>
+        <div class="form-success" id="form-success"><span class="check">✓</span>Message sent! I'll be in touch soon.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 <span>JYOTI VARPE</span> · built pixel by pixel and line by line</div>
+    <div class="footer-right">Milpitas, CA · Open to opportunities</div>
+  </div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),curR=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function a(){cur.style.left=mx+'px';cur.style.top=my+'px';rx+=(mx-rx)*.16;ry+=(my-ry)*.16;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(a)})();
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!name||!email||!msg){alert('Please fill in all required fields.');return;}
+  const sub=document.getElementById('f-subject').value||'Portfolio Contact';
+  const body=`Hi Jyoti,\n\nMy name is ${name}.\n\n${msg}\n\nBest,\n${name}`;
+  window.location.href=`mailto:jyotivarpe1595@gmail.com?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('form-wrap').style.display='none';
+  document.getElementById('form-success').style.display='block';
+}
+</script>
+</body>
+</html>
